@@ -9,7 +9,7 @@ export default function WritePage() {
   const [content, setContent] = useState('')
   const [groupId, setGroupId] = useState('')
   const [bookId, setBookId] = useState('')
-  const [bookScope, setBookScope] = useState('private')
+  const [bookScope, setBookScope] = useState<'private' | 'shared'>('private')
   const [pinned, setPinned] = useState(false)
   const [error, setError] = useState('')
 
@@ -21,16 +21,17 @@ export default function WritePage() {
     }
 
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         context,
         type,
         title,
         content,
         group_id: groupId || null,
         book_id: bookId || null,
-        book_scope,
+        book_scope: bookScope, // ✅ 여기가 핵심 수정
         pinned
       })
+
       alert('글이 작성되었습니다!')
       window.location.href = `/groups/${groupId || 'my'}/posts`
     } catch (err: any) {
@@ -72,7 +73,7 @@ export default function WritePage() {
         <div className="space-y-2">
           <label>도서 ID</label>
           <input value={bookId} onChange={e => setBookId(e.target.value)} />
-          <select value={bookScope} onChange={e => setBookScope(e.target.value)}>
+          <select value={bookScope} onChange={e => setBookScope(e.target.value as 'private' | 'shared')}>
             <option value="private">개인 도서</option>
             <option value="shared">공통 도서</option>
           </select>
