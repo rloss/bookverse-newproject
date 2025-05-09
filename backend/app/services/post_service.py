@@ -1,3 +1,4 @@
+from uuid import UUID
 from app.models.post import Post
 from app.schemas.post import PostCreate
 from app.db.session import SessionLocal
