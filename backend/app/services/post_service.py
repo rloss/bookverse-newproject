@@ -3,6 +3,7 @@ from app.models.post import Post
 from app.schemas.post import PostCreate
 from app.db.session import SessionLocal
 from app.utils.id_generator import generate_display_id
+from sqlalchemy.orm import Session
 
 def create_post(db: Session, data: PostCreate, author_id: UUID):
     post = Post(
