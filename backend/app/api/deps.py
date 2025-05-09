@@ -1,10 +1,11 @@
 from typing import Generator
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 from app.db.session import SessionLocal
 from app.core.security import decode_access_token
 from app.models.user import User
 from app.services.user_service import get_user_by_id
+from jose import JWTError
 
 # ✅ DB 세션 생성
 def get_db() -> Generator[Session, None, None]:
