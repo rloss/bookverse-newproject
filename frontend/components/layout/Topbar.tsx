@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export default function Topbar() {
   return (
-    <header className="w-full bg-white shadow px-6 py-3 flex items-center justify-between">
+    <header className="w-full bg-white shadow-md px-6 py-4 flex items-center justify-between sticky top-0 z-50">
       <div className="flex items-center gap-8 text-lg font-medium">
-        <Link href="/" className="text-blue-600 font-bold text-xl">
+        <Link href="/" className="text-blue-600 font-extrabold text-xl">
           Bookverse
         </Link>
         <Link href="/">홈</Link>
@@ -17,3 +17,4 @@ export default function Topbar() {
     </header>
   )
 }
+
