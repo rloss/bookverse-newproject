@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-100 text-gray-900 font-sans;
+/* --------- Base Reset 추가 --------- */
+html, body {
+  @apply bg-gray-50 text-gray-800;
+  font-family: 'Pretendard', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  @apply text-blue-600 hover:underline;
+}
+
+/* --------- Typography --------- */
+h1, h2, h3, h4 {
+  @apply text-gray-800 font-semibold;
+}
+
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+
+/* --------- Inputs & Forms --------- */
+input, select, textarea {
+  @apply w-full px-3 py-2 border border-gray-300 rounded bg-white text-sm;
+}
+
+input:focus, select:focus, textarea:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-1;
+}
+
+button {
+  @apply px-4 py-2 rounded text-sm font-medium;
+}
+
+button.primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+button.secondary {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-700;
+}
+
+/* --------- Layout Utility Classes --------- */
+.container {
+  @apply max-w-5xl mx-auto p-6;
+}
+
+.section {
+  @apply space-y-4 mb-10;
 }
