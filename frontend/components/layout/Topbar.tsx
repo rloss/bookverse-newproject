@@ -1,23 +1,19 @@
 'use client'
-
 import Link from 'next/link'
 
 export default function Topbar() {
   return (
-    <header className="w-full bg-white shadow-md px-6 py-3 flex items-center justify-between fixed top-0 left-0 z-50">
-      <div className="flex items-center gap-8 text-lg font-medium">
-        <Link href="/" className="text-blue-600 font-bold text-2xl">
+    <header className="w-full h-header bg-white border-b shadow-sm px-6 py-3 flex items-center justify-between font-sans">
+      <div className="flex items-center gap-8 text-base text-gray-700">
+        <Link href="/" className="text-brand font-bold text-xl">
           Bookverse
         </Link>
-        <nav className="hidden md:flex gap-6 text-gray-700">
-          <Link href="/">홈</Link>
-          <Link href="/groups">Browse</Link>
-          <Link href="/my/groups">My Groups</Link>
-          <Link href="/my">My Page</Link>
-          <Link href="/my/settings">Settings</Link>
-        </nav>
+        <Link href="/">홈</Link>
+        <Link href="/groups">그룹 탐색</Link>
+        <Link href="/my/groups">내 그룹</Link>
+        <Link href="/my">마이페이지</Link>
+        <Link href="/my/settings">설정</Link>
       </div>
     </header>
   )
 }
-
