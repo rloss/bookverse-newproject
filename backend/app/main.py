@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.v1 import posts, users, groups, books, comments, schedules
+from app.api.v1 import posts, users, groups, books, comments, schedules, groupbooks
 from app.core.config import settings
 
 app = FastAPI(
@@ -31,3 +31,4 @@ app.include_router(groups.router, prefix="/api/v1/groups", tags=["Groups"])
 app.include_router(books.router, prefix="/api/v1/books", tags=["Books"])
 app.include_router(comments.router, prefix="/api/v1/comments", tags=["Comments"])
 app.include_router(schedules.router, prefix="/api/v1/schedules", tags=["Schedules"])
+app.include_router(groupbooks.router, prefix="/api/v1/groupbooks", tags=["GroupBooks"])

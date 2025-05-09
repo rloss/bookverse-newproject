@@ -40,3 +40,12 @@ class PostResponse(BaseModel):
     class Config:
         from_attributes = True  # ✅ Pydantic v2 방식 ORM 모드
 
+class PostCreate(BaseModel):
+    context: Literal["review", "community", "announcement"]
+    type: Literal["note", "quote", "discussion", "free"]
+    title: str
+    content: str
+    group_id: Optional[UUID] = None
+    book_id: Optional[UUID] = None
+    book_scope: Optional[Literal["shared", "private"]] = None
+    pinned: Optional[bool] = False
